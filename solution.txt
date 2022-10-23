@@ -1,0 +1,34 @@
+function CloseFfriend(num1,num2)
+    //Check if the two numbers are permutations of each other in octal representations.
+    //Input: two decimal number.
+    //Output: a boolean expression.
+    oct1 ← DecimalToOctal(num1)
+    oct2 ← DecimalToOctal(num2)
+    if oct1.length()̸= oct2.length() then
+        return False
+    //Initialize two arrays to store the count of each digit of two octal numbers.
+    //The size of arrays is 8 and the index of array represents the digit.
+    //ie. if we have array1[7] = 2, that means oct1 has two ”7” in it.
+    array1 ← A[0, 0, 0, 0, 0, 0, 0, 0]
+    array2 ← A[0, 0, 0, 0, 0, 0, 0, 0]
+    for i ← 0 to n − 1 do
+        v ← oct1[i]
+        array1[v] ← array1[v] + 1
+    for i ← 0 to n − 1 do
+        w ← oct2[i]
+        array2[w] ← array2[w] + 1
+    for i ← 0 to 7 do//an octal number is composed of 0-7
+        if array1[i] ̸= array2[i] then
+            return False
+    return True
+    
+function DecimalToOctal(num)
+    //Convert a decimal number into an octal number
+    //Input: a decimal number num
+    //Output: an octal number xn−1xn−2 · · · x2x1x0
+    n ← 0
+    while num ̸= 0 do
+        xn ← num mod 8//calculate the remainder of num divided by 8
+        num ← ⌊num/8⌋//calculate the quotient of num divided by 8
+        n ← n + 1
+    return xn−1xn−2 · · · x2x1x0
